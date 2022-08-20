@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start eating well</title>
+
+
+     <!-- Always include this line of code!!! -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+     <!-- for icon on the tab  -->
+     <link rel="icon" href="img/favicon1.png" />
+     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+     <link rel="manifest" href="manifest.webmanifest" />
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    /* Font-size: 10px; */
+    /* 10px / 16px = 0.625 = 62.5% */
+    /* Percentage of user's browser font-size setting */
+    font-size: 62.5%;
+    overflow-x: hidden;
+
+    /* Does NOT work on Safari & not on Microsoft Edge */
+    /* scroll-behavior: smooth; */
+}
+
+    .body {
+        font-family: "Rubik", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    overflow-x: hidden;
+    }
+
+    /* ================================== */
+/* ******************************** */
+/* Login  */
+/* ******************************** */
+
+.section-login {
+  
+}
+
+
+.login-img {
+    max-width: 100%;
+    height: 90vh;
+    display: block;
+    margin-top: 3.2rem;
+    
+
+    background-image: linear-gradient(to right bottom,
+rgba(235, 151, 78, 0.35),
+rgba(235, 151, 78, 0.35) ),
+url("../img/login_page/mikhail\ \(2\).jpg");
+background-size: cover;
+background-position: center;
+z-index: 99;
+}
+
+.login-form {
+    display:inline-block;
+background-color: #fdf2e9c5 ;
+padding: 4.2rem 4.6rem;
+margin-top: 8rem;
+margin-left: 80rem;
+border-radius: 9px;
+}
+
+.login-form-details {
+    margin-bottom: 2.4rem;
+}
+
+.sign-up-box {
+    display: inline;
+    margin-left: 30rem;
+}
+
+.login-form-link {
+    font-size: 1.8rem;
+    color: #e67e22;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-bottom: none;
+}
+
+.login-form-link:active,
+.login-form-link:hover {
+    color :  #cf711f ;
+}
+
+.login-form-label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+
+.login-form-text {
+    margin-top: 1.6rem;
+    margin-bottom: 2.1rem;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    background-color: #fdf2e9;
+    border-radius: 9px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.login-form-details:last-child{
+    margin-bottom: none;
+}
+
+.forgot-password {
+    margin-top: 0.5 rem;
+}
+
+.login-social-icons {
+    background-color: #eb984e ;
+}
+
+
+</style>
+</head>
+<body>
+    
+    <section class="section-login">
+
+<head>
+    <picture class="login-img" role="img" aria-label="Two people enjoying food">
+        <!-- <img src="img/login_page/mikhail (2).jpg" 
+        alt="Two womens enjoying food " 
+        class="login-img"
+        > -->
+
+        <div class="login ">
+    <form  class="login-form"   name="sign-up">
+
+        <div class="login-form-details sign-up-box ">
+           
+                <a href="#" 
+                class="login-form-link" >Sign up now</a>
+            
+        </div>
+
+     <div class="login-form-details">
+        <label for="email-address" class="login-form-label">Email address</label>
+        <input id="email" type="email"  class="login-form-text" placeholder="me@example.com" name="email" required  />
+    </div>
+
+    <div class="login-form-details">
+        <label for="password" class="login-form-label">Password</label>
+        <input id="password" type="password" class="login-form-text" placeholder="abcABC@123" name="password" required  />
+    </div>
+
+        <div class="login-form-details">
+            <button class="login-btn btn btn--form">Login</button>
+        </div>
+
+        <a href="#" class="login-form-link  forgot-password">Forgot password</a>
+
+    </form>
+ 
+
+    
+
+    
+ </div>
+    </picture>
+</head>
+
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
