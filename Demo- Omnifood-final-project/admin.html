@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="html" href="index.html">
+
+
+
+    <style>
+
+        .addDelete {
+            text-align: center;
+            margin-top: 6rem;
+            font-size: 1.6rem;
+        }
+
+        .add-meal-form {
+            margin: 3.2rem;
+            background-color: #fdf2e9 ;
+            border-radius: 5%;
+            padding: 3rem;
+        }
+
+        .meal-details {
+            margin: 3rem;
+            padding: 1rem;
+            cursor: pointer;
+            font: 2rem;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+
+        .food-item-table ,
+         .food-table {
+            width: 100%;
+            text-align: center;
+        }
+
+        .food-item-table ,
+         .food-table thead{ 
+            font-size: 1.8rem;
+            padding: 2rem;
+            margin-left: 20%;
+
+         }
+         .foodTable-head {
+            background-color:#45260a;
+            color: #fff;
+         }
+
+         
+         .table-head {
+            padding: 2.4rem;
+            font: 2rem;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+         }
+
+
+    </style>
+</head>
+<body>
+    
+<section class="sectionAdmin container">
+
+    
+           
+
+       <div class="addDelete">
+        
+        
+            
+
+            <table>
+                <tr>
+                    <td>
+                        <h1>Add meals</h1> 
+            <form class="add-meal-form" name="Admin" onsubmit="onSubmitAdminForm()" autocomplete="off" >
+
+                <div class="meal-details">
+                    <label for="item-name">Name</label>
+                    <input id="adminFoodItemName" 
+                    type="text" 
+                    placeholder="Food name" 
+                    name="Food name" required  />
+                </div>
+
+                <div class="meal-details">
+                    <label for="Calories">Calories</label>
+                    <input id="adminFoodItemCalories" 
+                    type="number" 
+                    placeholder="Calories" 
+                    name="Calories" required  />
+                </div>
+
+                <div class="meal-details">
+                    <label for="Nutrients">Nutrients</label>
+                    <input id="adminFoodItemNutrients" 
+                    type="number" 
+                    placeholder="Nutrients" 
+                    name="Nutrients" required  />
+                </div>
+
+                <div class="meal-details admin-meal-img">
+                    <label for="Food-image">Image</label>
+                    
+                    <input id="adminFoodItemImage" 
+                    type="file" accept="image/png, image/jpg, image/jpeg" 
+                    placeholder="Food-image" 
+                    name="Food-image" />
+                </div>
+
+                <div>
+                <input type="submit" 
+                value="submit" 
+                class="btn btn--form" 
+                id="adminSubmitBtn">
+                </input>
+            </div>
+            </form>
+
+
+        </div>
+   
+
+
+
+<td>
+        <div class="food-table ">
+
+            <table class="food-item-table" id="admin-food-table">
+                <thead class="foodTable-head">
+                    <tr>
+                        
+                        <th class="table-head">Name</th>
+                        <th class="table-head">Calories</th>
+                        <th class="table-head">Nutrients</th>
+                        <th class="table-head">Image</th>
+                        <th class="table-head">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </td>
+            
+        </div>
+    </td>
+    </tr>
+</table>
+</section>
+
+
+<script>
+var selectedRow = null;
+function onSubmitAdminForm(e) {
+
+    event.preventDefault();
+    var formData = readFormData();
+
+    if(selectedRow === null){
+        insertNewRecord(formData);
+    }else {
+        updateRecord(formData);
+    }
+    resetForm();
+}
+
+
+// Reading data provided by admin
+function readFormData(){
+    var formData = { };
+    formData ["adminFoodItemName"] = document.getElementById("adminFoodItemName").value;
+    formData ["adminFoodItemCalories"] = document.getElementById("adminFoodItemCalories").value;
+    formData ["adminFoodItemNutrients"] = document.getElementById("adminFoodItemNutrients").value;
+    formData ["adminFoodItemImage"] = document.getElementById("adminFoodItemImage").value;
+    return formData;
+}
+
+
+// Inserting data in table for displaying 
+function insertNewRecord(data){
+    var table = document.getElementById("admin-food-table").getElementsByTagName("tbody")[0];
+    
+    var newRow = table.insertRow(table.length);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.adminFoodItemName;
+
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.adminFoodItemCalories;
+
+    cell3 = newRow.insertCell(2);
+    cell3.innerHTML = data.adminFoodItemNutrients;
+
+    cell4 = newRow.insertCell(3);
+    cell4.innerHTML = data.adminFoodItemImage;
+
+    cell5 = newRow.insertCell(4);
+    cell5.innerHTML = ' <button onClick="onEdit(this)"> Edit </button>  <button onClick="onDelete(this)"> Delete </button>';
+}
+
+// edit the data
+function onEdit(td){
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("adminFoodItemName").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("adminFoodItemCalories").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("adminFoodItemNutrients").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("adminFoodItemImage").value = selectedRow.cells[3].innerHTML;
+}
+
+function updateRecord(formData){
+    selectedRow.cells[0].innerHTML = formData.adminFoodItemName;
+    selectedRow.cells[1].innerHTML = formData.adminFoodItemCalories;
+    selectedRow.cells[2].innerHTML = formData.adminFoodItemNutrients;
+    selectedRow.cells[3].innerHTML = formData.adminFoodItemImage;
+}
+
+// delete data
+function onDelete(td){
+    if(confirm("Do you want to delete this record?")){
+        row = td.parentElement.parentElement;
+    document.getElementById("admin-food-table").deleteRow(row.rowIndex);
+    }
+   resetForm();
+}
+
+
+// reset the data
+
+function resetForm(){
+    document.getElementById("adminFoodItemName").value = "";
+    document.getElementById("adminFoodItemCalories").value = "";
+    document.getElementById("adminFoodItemNutrients").value = "";
+    document.getElementById("adminFoodItemImage").value = "";
+}
+</script>
+</body>
+</html>
